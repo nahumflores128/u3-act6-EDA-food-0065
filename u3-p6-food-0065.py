@@ -1,0 +1,33 @@
+# nahum flores 0065
+import pandas as pd
+import matplotlib.pyplot as plt
+# 1. Leer el archivo CSV comida pais india
+df_food_india = pd.read_csv('indian_food.csv')
+print("\n--- DATOS LEIDOS DESDE CSV, comida india 0065 ---")
+print(df_food_india)
+print("\n--- mostrar nombre comida + ingredientes 0065 ---")
+recetas = df_food_india[["name", "ingredients"]]
+print(recetas)
+print("\n--- tiempo de cocinado mostrar registros con head 0065 ---")
+nombre_y_hora = df_food_india[["name", "cook_time"]].head(10)
+print(nombre_y_hora)
+print("\n--- Grafica comida(X) tiempo de cocinado (y) ---")
+print("\n--- Grafica comida (x) texto a 30 grados ---")
+nombre_y_hora.plot.bar(x="name", y="cook_time", rot=30)
+plt.title("Comida tipica de india Nahum 0065")
+plt.xlabel("Nombre platillo")
+plt.ylabel("Tiempo cocinado")
+plt.show()
+nombre_y_hora = df_food_india[["name", "prep_time", "cook_time"]].head(10)
+nombre_y_hora.plot.bar(x="name", rot=30)
+plt.title("Grafica de 2 columnas Nahum 0065")
+plt.xlabel("Nombre platillo")
+plt.ylabel("Tiempo de cocinado prep y comida")
+plt.show()
+print("\n--- Graficas apiladas una tras otra verticalmente 0065 ---")
+print("\n--- Grafica de barras apiladas (Stacked) 0065 ---")
+nombre_y_hora.plot.bar(x="name", stacked=True, rot=30)
+plt.title("Grafica apilada prep y cocinado Nahum 0065")
+plt.xlabel("Nombre platillo")
+plt.ylabel("Tiempo total (prep + cocinado)")
+plt.show()
